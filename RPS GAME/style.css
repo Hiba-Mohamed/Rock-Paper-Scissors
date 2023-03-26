@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section{
+    height: 100vh;
+    background-color:linen;
+    font-family: sans-serif;
+
+}
+
+.score{
+    color:indianred;
+    height: 20vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.score h2 {
+    font-size: 30px;
+}
+
+.score p {
+    text-align: center;
+    padding: 10px;
+    font-size: 25px;
+}
+
+.intro {
+    color: brown;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    transition: opacity 0.5s ease 0.5s;
+   
+    
+}
+
+.intro button,
+.match button{
+    width: 150px;
+    height: 50px;
+    background: none;
+    border: none;
+    color: blueviolet;
+    font-size: 20px;
+    background-color:darksalmon;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.match{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.winner{
+    color:brown;
+    text-align: center;
+    font-size: 50px;
+}
+
+.hands
+{
+display: flex;
+justify-content: space-around;
+align-items: center;
+}
+
+.options {
+display: flex;
+justify-content: space-around;
+align-items: center;
+}
+
+.player-hand {
+    transform: rotatey(180deg);
+}
+
+nav.fadeout{
+opacity: 0;
+pointer-events: none;
+}
+
+nav.fadeIn{
+    opacity: 1;
+    pointer-events: all;
+}
