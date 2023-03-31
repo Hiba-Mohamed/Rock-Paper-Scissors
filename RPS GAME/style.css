@@ -6,13 +6,13 @@
 
 section{
     height: 100vh;
-    background-color:linen;
+    background-color:#A5D7E8;
     font-family: sans-serif;
 
 }
 
 .score{
-    color:indianred;
+    color:#0B2447;
     height: 20vh;
     display: flex;
     justify-content: space-around;
@@ -30,15 +30,14 @@ section{
 }
 
 .intro {
-    color: brown;
+    color: #0B2447;
     height: 50vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    transition: opacity 0.5s ease 0.5s;
+    transition: opacity 0.5s ease 0.5s;  
    
-    
 }
 
 .intro button,
@@ -47,9 +46,9 @@ section{
     height: 50px;
     background: none;
     border: none;
-    color: blueviolet;
+    color: 0B2447;
     font-size: 20px;
-    background-color:darksalmon;
+    background-color:#BFDCE5;
     border-radius: 3px;
     cursor: pointer;
 }
@@ -62,9 +61,10 @@ section{
 }
 
 .winner{
-    color:brown;
+    color:#0B2447;
     text-align: center;
     font-size: 50px;
+    padding: 20px;
 }
 
 .hands
@@ -82,6 +82,11 @@ align-items: center;
 
 .player-hand {
     transform: rotatey(180deg);
+    padding: 0px 50px 0px 50px;
+}
+
+.computer-hand{
+    padding: 0px 50px 0px 50px;
 }
 
 nav.fadeout{
@@ -92,4 +97,8 @@ pointer-events: none;
 nav.fadeIn{
     opacity: 1;
     pointer-events: all;
+}
+
+h1 {
+padding: 30px;
 }
