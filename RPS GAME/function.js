@@ -1,25 +1,36 @@
+
 const playBtn = document.querySelector(".intro button");
 const introScreen = document.querySelector(".intro");
 const match = document.querySelector(".match");
 
-const game = () =>
+
+// Event listener should be on this element as soon as DOM loads so users can interact with it
+// (I think at least... If there is reasoning given in the tutorial then feel free to follow that)
+playBtn.addEventListener('click', () =>
     {
-         let pscore = 0;
-         let cscore = 0;
+        // introScreen.classList.add("fadeOut");
+        introScreen.classList.add("hidden");
+        match.classList.remove('hidden');
+        game()
+    }
+);
 
-         const startGame = () => 
-             {
-                playBtn.addEventListener
-                ('click', 
-                () => {
-                        introScreen.classList.add("fadeOut");
-                      }
-                );
-             };
+// We can treat the entire game object as a callback here such that clicking 'Let's Play' 
+// Will trigger the entire game to start... You'll probably need a while loop or something
+// to keep it going though
+const game = () =>
+{
+    let pscore = 0;
+    let cscore = 0;
 
-            //  call all the inner functions
-                startGame();
+    const startGame = () => 
+    {
+        console.log('starting the game', pscore, cscore);
     };
 
-    // call the game function
-    game(); 
+    //  call all the inner functions
+    startGame();
+};
+
+// call the game function
+// game(); 
