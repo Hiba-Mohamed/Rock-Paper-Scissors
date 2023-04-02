@@ -3,7 +3,6 @@ const playBtn = document.querySelector(".intro button");
 const introScreen = document.querySelector(".intro");
 const match = document.querySelector(".match");
 
-
 // Event listener should be on this element as soon as DOM loads so users can interact with it
 // (I think at least... If there is reasoning given in the tutorial then feel free to follow that)
 playBtn.addEventListener('click', () =>
