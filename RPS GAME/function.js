@@ -7,10 +7,8 @@ const match = document.querySelector(".match");
 // (I think at least... If there is reasoning given in the tutorial then feel free to follow that)
 playBtn.addEventListener('click', () =>
     {
-        // introScreen.classList.add("fadeOut");
-        introScreen.classList.add("hidden");
-        match.classList.remove('hidden');
-        game()
+        introScreen.classList.add("fadeOut");
+        match.classList.add("fadeIn");
     }
 );
 
@@ -32,4 +30,4 @@ const game = () =>
 };
 
 // call the game function
-// game(); 
+game(); 
