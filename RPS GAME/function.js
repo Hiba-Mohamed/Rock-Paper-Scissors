@@ -13,6 +13,8 @@ const game = () =>
     {
         playBtn.addEventListener ('click', () =>
         {
+          
+          console.log('Game Start')
           introScreen.classList.add("fadeOut");
           match.classList.add("fadeIn");
         });
