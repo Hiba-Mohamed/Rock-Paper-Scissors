@@ -13,8 +13,6 @@ const game = () =>
     {
         playBtn.addEventListener ('click', () =>
         {
-          
-          console.log('Game Start')
           introScreen.classList.add("fadeOut");
           match.classList.add("fadeIn");
         });
@@ -67,12 +65,16 @@ const game = () =>
 
 const updateScore = () =>
  {
+  let pscore = 0;
+  let cscore = 0;
   const playerScore = document.querySelector(".player-score p");
   const computerScore = document.querySelector(".computer-score p");
  }
 
 const compareHands = (playerChoice, computerChoice) => 
 { 
+  let pscore = 0;
+  let cscore = 0;
   const winner = document.querySelector(".winner");
   if (playerChoice === computerChoice)
     {
