@@ -1,32 +1,34 @@
+
 const game = () =>
 {
+  const playBtn     = document.querySelector(".start-button");
+  const introScreen = document.querySelector(".intro");
+  const match       = document.querySelector(".match"); 
+
     let pscore = 0;
     let cscore = 0;
 
     // start the game
     const startGame = () => 
     {
-      const playBtn     = document.querySelector(".intro button");
-      const introScreen = document.querySelector(".intro");
-      const match       = document.querySelector(".match"); 
-
         playBtn.addEventListener ('click', () =>
         {
           introScreen.classList.add("fadeOut");
           match.classList.add("fadeIn");
         });
     };
-  
+    startGame();
     const playMatch = () =>
      {
       const options = document.querySelectorAll(".options button");
       const playerHand = document.querySelector(".player-hand");
       const computerHand = document.querySelector(".computer-hand");
       const hands = document.querySelectorAll(".hands img");
-      hands.addEventListener("animationed", function ()
-      {
-        this.style.animation = "";
-      })
+      hands.forEach(hand => {
+        hand.addEventListener("animationend", function () {
+          this.style.animation = "";
+        });
+      });
       const computerOptions = ['rock', 'paper', 'scissors'];
       options.forEach(option=>
          {
@@ -55,7 +57,9 @@ const game = () =>
          }           )
 
      }
+     
      playMatch();
+     
     
 };
 
@@ -64,6 +68,7 @@ const updateScore = () =>
   const playerScore = document.querySelector(".player-score p");
   const computerScore = document.querySelector(".computer-score p");
  }
+
 const compareHands = (playerChoice, computerChoice) => 
 { 
   const winner = document.querySelector(".winner");
@@ -116,41 +121,9 @@ const compareHands = (playerChoice, computerChoice) =>
           updateScore();
          }
       }
+      
 }
+game();
 
 
 
-// // declaring the constants from the HTML document
-// const playBtn     = document.querySelector(".intro button");
-// const introScreen = document.querySelector(".intro");
-// const match       = document.querySelector(".match");
-
-// // Event listener should be on this element as soon as DOM loads so users can interact with it
-// // (I think at least... If there is reasoning given in the tutorial then feel free to follow that)
-
-// playBtn.addEventListener('click', () =>
-//     {
-//         introScreen.classList.add("fadeOut");
-//         match.classList.add("fadeIn");
-//     }
-// );
-
-// // We can treat the entire game object as a callback here such that clicking 'Let's Play' 
-// // Will trigger the entire game to start... You'll probably need a while loop or something
-// // to keep it going though
-// const game = () =>
-// {
-//     let pscore = 0;
-//     let cscore = 0;
-
-//     // const startGame = () => 
-//     // {
-//     //     console.log('starting the game', pscore, cscore);
-//     // };
-
-//     //  call all the inner functions
-//     // startGame();
-// };
-
-// // call the game function
-// game(); 
