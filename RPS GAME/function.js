@@ -1,12 +1,13 @@
 
+let pscore = 0;
+let cscore = 0;
 const game = () =>
 {
   const playBtn     = document.querySelector(".start-button");
   const introScreen = document.querySelector(".intro");
   const match       = document.querySelector(".match"); 
 
-    let pscore = 0;
-    let cscore = 0;
+    
 
     // start the game
     const startGame = () => 
@@ -17,6 +18,7 @@ const game = () =>
           match.classList.add("fadeIn");
         });
     };
+    // playing a match
     startGame();
     const playMatch = () =>
      {
@@ -29,6 +31,8 @@ const game = () =>
           this.style.animation = "";
         });
       });
+
+      // computer options
       const computerOptions = ['rock', 'paper', 'scissors'];
       options.forEach(option=>
          {
@@ -36,22 +40,24 @@ const game = () =>
           {
             const computerNumber =Math.floor( Math.random()*3);
             const computerChoice = computerOptions[computerNumber];
-
+           
             setTimeout( ()=> 
             {
               compareHands(this.textContent,computerChoice);
-              // update images
+              // update images after two seconds of player selecting a choice
               playerHand.src = `./assets/${this.textContent}.png`;
               computerHand.src = `./assets/${computerChoice}.png`;
             }, 2000);
 
-            compareHands(this.textContent,computerChoice);
-            // update images
-            playerHand.src = `./assets/${this.textContent}.png`;
-            computerHand.src = `./assets/${computerChoice}.png`;
+             // set images to rock before updating them
+              playerHand.src = `./assets/rock.png`;
+              computerHand.src = `./assets/rock.png`;
+             
+              // animating the rock image before revealing the player and computer choices.
+              playerHand.style.animation = "shakePlayer 2s ease";
+              computerHand.style.animation = "shakeComputer 2s ease";
+  
 
-            playerHand.style.animation = "shakePlayer 2s ease";
-            computerHand.style.animation = "shakeComputer 2s ease";
            }
                                   )
          }           )
@@ -65,22 +71,26 @@ const game = () =>
 
 const updateScore = () =>
  {
-  let pscore = 0;
-  let cscore = 0;
   const playerScore = document.querySelector(".player-score p");
   const computerScore = document.querySelector(".computer-score p");
- }
+  // Linking the scores to the HTML inner text
+  playerScore.textContent = pscore;
+  computerScore.textContent = cscore; 
+}
 
 const compareHands = (playerChoice, computerChoice) => 
 { 
-  let pscore = 0;
-  let cscore = 0;
+
   const winner = document.querySelector(".winner");
   if (playerChoice === computerChoice)
     {
       winner.textContent = "it is a tie!"
     }
-    if(playerChoice === 'rock')
+
+    // adding else fixed score and winner display issues
+  else
+    {
+      if(playerChoice === 'rock')
     {
       if (computerChoice === 'scissors')
        {
@@ -114,8 +124,8 @@ const compareHands = (playerChoice, computerChoice) =>
       {
         if (computerChoice === 'rock')
          {
-          winner.textContent = 'Player Wins';
-          pscore++;
+          winner.textContent = 'computer Wins';
+          cscore++;
           updateScore();
          }
          else
@@ -125,9 +135,11 @@ const compareHands = (playerChoice, computerChoice) =>
           updateScore();
          }
       }
+
+    }   
       
 }
-game();
 
+game();
 
 
